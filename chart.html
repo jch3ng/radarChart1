@@ -32,19 +32,19 @@
   <div class="controls">
     <h2>Adjust Criteria Ratings</h2>
     <label for="systemDesign">System Design:</label>
-    <input type="range" id="systemDesign" min="0" max="5" value="4">
+    <input type="range" id="systemDesign" min="1" max="5" value="4">
     <br>
     <label for="networking">Networking:</label>
-    <input type="range" id="networking" min="0" max="5" value="3">
+    <input type="range" id="networking" min="1" max="5" value="3">
     <br>
     <label for="linux">Linux:</label>
-    <input type="range" id="linux" min="0" max="5" value="4">
+    <input type="range" id="linux" min="1" max="5" value="4">
     <br>
     <label for="culture">Culture:</label>
-    <input type="range" id="culture" min="0" max="5" value="5">
+    <input type="range" id="culture" min="1" max="5" value="5">
     <br>
     <label for="xFactor">X Factor:</label>
-    <input type="range" id="xFactor" min="0" max="5" value="2">
+    <input type="range" id="xFactor" min="1" max="5" value="2">
   </div>
 
   <div class="legend">
@@ -78,6 +78,7 @@
         ticks: {
           beginAtZero: true,
           max: 5,
+          stepSize: 1,
         },
       },
     };

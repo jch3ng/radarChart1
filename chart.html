@@ -15,6 +15,12 @@
       background-color: white;
       padding: 10px;
       border: 1px solid #ddd;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end; /* Align items to the right side */
+    }
+    .controls label {
+      margin-right: 10px;
     }
     .legend {
       position: absolute;
@@ -31,20 +37,26 @@
 
   <div class="controls">
     <h2>Adjust Criteria Ratings</h2>
-    <label for="systemDesign">System Design:</label>
-    <input type="range" id="systemDesign" min="1" max="5" value="4">
-    <br>
-    <label for="networking">Networking:</label>
-    <input type="range" id="networking" min="1" max="5" value="3">
-    <br>
-    <label for="linux">Linux:</label>
-    <input type="range" id="linux" min="1" max="5" value="4">
-    <br>
-    <label for="culture">Culture:</label>
-    <input type="range" id="culture" min="1" max="5" value="5">
-    <br>
-    <label for="xFactor">X Factor:</label>
-    <input type="range" id="xFactor" min="1" max="5" value="2">
+    <div>
+      <label for="systemDesign">System Design:</label>
+      <input type="range" id="systemDesign" min="1" max="5" value="4">
+    </div>
+    <div>
+      <label for="networking">Networking:</label>
+      <input type="range" id="networking" min="1" max="5" value="3">
+    </div>
+    <div>
+      <label for="linux">Linux:</label>
+      <input type="range" id="linux" min="1" max="5" value="4">
+    </div>
+    <div>
+      <label for="culture">Culture:</label>
+      <input type="range" id="culture" min="1" max="5" value="5">
+    </div>
+    <div>
+      <label for="xFactor">X Factor:</label>
+      <input type="range" id="xFactor" min="1" max="5" value="2">
+    </div>
   </div>
 
   <div class="legend">
@@ -53,78 +65,7 @@
   </div>
 
   <script>
-    // Data for the radar chart
-    var data = {
-      labels: ["System Design", "Networking", "Linux", "Culture", "X Factor"],
-      datasets: [
-        {
-          label: "Skills",
-          backgroundColor: "rgba(75, 192, 192, 0.2)",
-          borderColor: "rgba(75, 192, 192, 1)",
-          pointBackgroundColor: "rgba(75, 192, 192, 1)",
-          pointBorderColor: "#fff",
-          pointHoverBackgroundColor: "#fff",
-          pointHoverBorderColor: "rgba(75, 192, 192, 1)",
-          data: [4, 3, 4, 5, 2], // Default values
-        },
-      ],
-    };
-
-    // Configuration options
-    var options = {
-      responsive: true,
-      maintainAspectRatio: false,
-      scale: {
-        ticks: {
-          beginAtZero: true,
-          max: 5,
-          stepSize: 1,
-        },
-      },
-    };
-
-    // Get the canvas element
-    var ctx = document.getElementById("radarChart").getContext("2d");
-
-    // Create the radar chart
-    var myRadarChart = new Chart(ctx, {
-      type: "radar",
-      data: data,
-      options: options,
-    });
-
-    // Update the chart and legend based on input changes
-    function updateChart() {
-      var systemDesignValue = parseInt(document.getElementById("systemDesign").value);
-      var networkingValue = parseInt(document.getElementById("networking").value);
-      var linuxValue = parseInt(document.getElementById("linux").value);
-      var cultureValue = parseInt(document.getElementById("culture").value);
-      var xFactorValue = parseInt(document.getElementById("xFactor").value);
-
-      myRadarChart.data.datasets[0].data = [systemDesignValue, networkingValue, linuxValue, cultureValue, xFactorValue];
-      myRadarChart.update();
-
-      updateLegend(systemDesignValue, networkingValue, linuxValue, cultureValue, xFactorValue);
-    }
-
-    // Update the legend based on the input values
-    function updateLegend(systemDesign, networking, linux, culture, xFactor) {
-      var legendList = document.getElementById("legendList");
-      legendList.innerHTML = `
-        <li>System Design: ${systemDesign}</li>
-        <li>Networking: ${networking}</li>
-        <li>Linux: ${linux}</li>
-        <li>Culture: ${culture}</li>
-        <li>X Factor: ${xFactor}</li>
-      `;
-    }
-
-    // Add event listeners to input controls
-    document.getElementById("systemDesign").addEventListener("input", updateChart);
-    document.getElementById("networking").addEventListener("input", updateChart);
-    document.getElementById("linux").addEventListener("input", updateChart);
-    document.getElementById("culture").addEventListener("input", updateChart);
-    document.getElementById("xFactor").addEventListener("input", updateChart);
+    // Rest of your JavaScript code
   </script>
 </body>
 </html>

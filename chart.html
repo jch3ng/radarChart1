@@ -3,6 +3,12 @@
 <head>
   <title>Criteria Radar Chart</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    canvas {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
 </head>
 <body>
   <canvas id="radarChart"></canvas>
@@ -27,6 +33,8 @@
 
     // Configuration options
     var options = {
+      responsive: true, // Enable responsiveness
+      maintainAspectRatio: false, // Do not maintain aspect ratio
       scale: {
         ticks: {
           beginAtZero: true,
@@ -47,4 +55,3 @@
   </script>
 </body>
 </html>
-
